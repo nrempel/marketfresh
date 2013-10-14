@@ -1,0 +1,78 @@
+/** BASE STYLES **/
+body
+    font-family: 'Open Sans Condensed', sans-serif, Courier, monospace
+    color: #555
+    font-size: 20px
+body,html
+    height: 100%
+h1
+    font-size: 2.4em
+h2
+    font-size: 1.9em
+h3
+    font-size: 1.6em
+b
+    font-weight: 600
+
+/** BASE MEDIA QUERIES **/
+@media handheld, only screen and (max-width: 767px)
+    body
+        font-size: 18px
+
+/** LAYOUT HEADER **/
+header
+    margin: 0 0 1em 0
+.header-wrapper
+    position: relative
+
+/** LAYOUT FOOTER **/
+footer
+    text-align: center
+    background-color: #ddd
+    font-size: 1em
+    height: 65px
+    position: absolute
+    bottom: 0
+    width: 100%
+
+/** LINKS **/
+a
+    color: #6897ab
+a:hover
+    color: #83cdee
+a:active
+    color: #49aad4
+a.subtle 
+    color: #4c7384
+a.subtle:hover 
+    color: #6499af
+a.subtle:active 
+    color: #2d647b
+
+/** HELPERS **/
+.inline-block
+    display: inline-block
+.inline
+    display: inline
+.marg-tb
+    margin-top: 0.5em
+    margin-bottom: 0.5em
+.marg-tb-2
+    margin-top: 1.5em
+    margin-bottom: 1.5em
+.text-center
+    text-align: center
+.pull-right
+    float: right
+.no-under
+    text-decoration: none
+.italic
+    font-style: italic
+.dark
+    color: #666
+.uppercase
+    text-transform: uppercase
+.fit
+    width: 100%
+small, .small
+    font-size: 0.8em

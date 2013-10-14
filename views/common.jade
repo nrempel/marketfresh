@@ -1,0 +1,18 @@
+doctype 5
+html
+    head
+        title #{title}
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='/css/reset.css')
+        link(rel='stylesheet', href='/css/simplegrid.css')
+        link(rel='stylesheet', href='/css/main.css')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700', rel='stylesheet', type='text/css')
+        script(src='/js/angular.js')
+
+    block content
+
+    footer
+        div(class='grid grid-pad')
+            div(class='col-1-1')
+                span © #{new Date().getFullYear()} | 
+                a(href='/', class='subtle no-under') marketfresh
