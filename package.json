@@ -1,0 +1,24 @@
+{
+  "name": "marketfresh",
+  "version": "0.0.1",
+  "description": "A marketplace that connects fresh food lovers and fresh food markets",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nrempel/marketfresh.git"
+  },
+  "keywords": [
+    "market",
+    "fresh",
+    "food"
+  ],
+  "author": "Nicholas Rempel <nbrempel@gmail.com>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/nrempel/marketfresh/issues"
+  }
+}
