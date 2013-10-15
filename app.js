@@ -1,5 +1,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
+
+var appController = require('./controllers/app.js');
+var marketsController = require('./controllers/markets.js');
+
 var app = module.exports = express();
 
 // Config
@@ -15,15 +19,15 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/marketfresh
 
 // Setup
 app.set('port', process.env.PORT || 5000);
-app.set('views', config.rootDir+config.viewPath);
+app.set('views', config.rootDir + config.viewPath);
 app.set('view engine', 'jade');
 app.use(express.compress());
-app.use(express.favicon(config.rootDir+config.publicPath+'/favicon.ico'));
+app.use(express.favicon(config.rootDir + config.publicPath + '/favicon.ico'));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(require('stylus').middleware(config.rootDir+config.publicPath));
-app.use(express['static'](config.rootDir+config.publicPath));
+app.use(require('stylus').middleware(config.rootDir + config.publicPath));
+app.use(express['static'](config.rootDir + config.publicPath));
 
 // Some dev stuff
 if ('development' == app.get('env')) {
@@ -38,22 +42,17 @@ app.use(function(req, res, next) {
     else { next(); }
 });
 
-// Serve up the app (single page)
-app.get('/', function (req, res) {
-    res.render('app', {title: 'marketfresh'});
-});
+// App Routes
+app.get('/', appController.index);
+app.get('/applets/:name', appController.applets);
 
-app.use(function (req, res) {
-    res.status(404).render('404', {
-        title: 'Not Found'
-    });
-});
-
-// API Routes
-var marketsController = require('./controllers/markets.js');
+// Markets Routes
 app.get('/api/v1/markets', marketsController.list);
 app.get('/api/v1/markets/:slug', marketsController.show)
 app.post('/api/v1/markets', marketsController.create);
+
+// Catch-all
+app.get('*', appController.index);
 
 // Run
 app.listen(app.get('port'));
